@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat with JonathanBot</title>
+    <style>
+        body, html, body * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        body
+        {
+            display: flex;
+            flex-direction: column;  
+            min-height: 100vh;     
+            background-color: #f8f9fa;
+            padding: 2em;   
+        }
+
+        header{
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            background-color: black;
+            padding: 2em;
+            display: flex;
+            align-items: center;
+        }
+
+        header span {
+            font-size: 2em;
+            font-weight: bold;
+            flex: 1;
+            color: orange;
+        }
+
+        header nav ul {     
+            list-style: none;
+            padding: 0;
+        }
+
+        header nav ul li {
+            display: inline-block;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: orange;
+            padding: 0 1em;
+            font-size: 1.5em;
+        }
+
+        main {
+            padding: 2em;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: gray;
+            background-color: white;
+        }
+
+        main h1 {
+            font-size: 5em;
+            margin-bottom: 0.5em;
+        }
+
+        /* This changes the main chat bubble color to orange */
+        .rw-conversation-container .rw-header {
+            background-color: #FFA500 !important;
+        }
+
+        .rw-launcher {
+            background-color: #FFA500 !important;
+        }
+
+        .rw-client {
+            background-color: #FFA500 !important;
+        }
+
+        .rw-reply {
+            background-color: #FFA500 !important;
+            border:none !important;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <span> JONATHAN BOT </span>
+        <nav>
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>🦾🤖</h1>
+        <p>I'm here to assist you with any questions you may have.</p>
+        <p>Feel free to ask me about my hobbies, skills, or projects!</p> 
+    </main>
+
+    <!-- Webchat Widget -->
+    <script src="https://cdn.jsdelivr.net/npm/rasa-webchat@1.0.1/lib/index.min.js"></script>
+    <script>
+      window.WebChat.default({
+          initPayload: "/greet",   // when the user opens the page, bot says hello
+          customData: {"language": "en"}, // optional info we send
+          socketUrl: "http://localhost:5005", // backend Rasa server
+          title: "JonathanBot",
+          subtitle: "Get to know me!",
+            
+      }, null);
+    </script>
+</body>
+</html>
